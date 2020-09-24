@@ -1,0 +1,17 @@
+@import '../../styles/variables.scss';
+
+.page-header {
+  padding-top: 10px;
+  color: #efefef;
+  text-align: center;
+
+  h1 {
+    margin: 0;
+    padding: 15px 0;
+  }
+
+  p {
+    margin: 0;
+    padding-bottom: 10px;
+  }
+}

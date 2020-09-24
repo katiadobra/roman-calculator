@@ -1,23 +1,17 @@
 import React from 'react';
 import Calculator from './components/Calculator/Calculator';
+import Aux from './components/Aux';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import './styles/index.scss';
 
 function App() {
   return (
-    <div>
-      <header>
-        <h1>Roman calculator</h1>
-        <p>Add 2 Roman numerals together. The answer will also be represented as a Roman numeral.</p>
-        <small>Roman numerals only include whole numbers, except zero.</small>
-      </header>
+    <Aux>
+      <Header />
       <Calculator />
-      <footer>
-        <ul>
-          <li>Case sensitive (only uppercase)</li>
-          <li>Numbers within range 1-3999</li>
-          <li>Supports addition, subtraction and multiplication</li>
-        </ul>
-      </footer>
-    </div>
+      <Footer />
+    </Aux>
   );
 }
 
