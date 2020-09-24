@@ -12,6 +12,7 @@
     border: 0;
     background: $white;
     font-size: 1.2em;
+    text-align: center;
     box-shadow: $box-shadow;
     transition: $transition;
 
@@ -72,6 +73,7 @@
   overflow-x: hidden;
 
   &__ttl {
+    margin-top: 0;
     color: $white;
 
     span {
