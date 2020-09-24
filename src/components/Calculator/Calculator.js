@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import romanToInt from '../utils/RomanToInt';
-import IntToRoman from '../utils/IntToRoman';
-
+import romanToInt from '../../utils/RomanToInt';
+import IntToRoman from '../../utils/IntToRoman';
+import './Calculator.scss';
 
 const Calculator = props => {
   const [firstRomanNum, setFirstRomanNum] = useState('');
@@ -31,15 +31,12 @@ const Calculator = props => {
     switch (operation) {
       case 'plus':
         result = firstIntNum + secondIntNum;
-        console.log(`plus`);
         break;
       case 'minus':
         result = firstIntNum - secondIntNum;
-        console.log(`minus`);
         break;
       case 'multiply':
         result = firstIntNum * secondIntNum;
-        console.log(`multiply`);
         break;
       default:
         console.log(`Error`);
@@ -47,36 +44,59 @@ const Calculator = props => {
 
     let sum = IntToRoman(result);
     setResult(sum);
-
-    console.log('result', result);
   }
 
   return (
     <main>
-      <form>
-        <input
-          className="app-input"
-          type="text"
-          value={firstRomanNum}
-          onChange={handleRomanNumerals}
-          onFocus={handleRomanNumerals}
-          placeholder="Roman numerals goes here..."
-        />
-        { firstIntNum && <span>{firstIntNum}</span> }
-        <input
-          className="app-input"
-          type="text"
-          value={secondRomanNum}
-          onChange={handleRomanNumerals2}
-          onFocus={handleRomanNumerals2}
-          placeholder="Roman numerals goes here..."
-        />
-        { secondIntNum && <span>{secondIntNum}</span> }
-        <button onClick={(e) => HandleResultClick(e, 'plus')}>+</button>
-        <button onClick={(e) => HandleResultClick(e, 'minus')}>-</button>
-        <button onClick={(e) => HandleResultClick(e, 'multiply')}>*</button>
-        { result && <span>Result: {result}</span> }
-      </form>
+      <div className="app-form-wrapper">
+        <div className="app-form-holder">
+          <form className="app-form">
+            <div className="app-form__block">
+              <h3>Roman calculator</h3>
+            </div>
+            <div className="app-form__block">
+              <div className="app-input">
+                <input
+                  className="app-input__field"
+                  type="text"
+                  value={firstRomanNum}
+                  onChange={handleRomanNumerals}
+                  onFocus={handleRomanNumerals}
+                  placeholder="Roman numerals goes here..."
+                />
+                { firstIntNum && <span className="num">{firstIntNum}</span> }
+              </div>
+              <div className="app-input">
+                <input
+                  className="app-input__field"
+                  type="text"
+                  value={secondRomanNum}
+                  onChange={handleRomanNumerals2}
+                  onFocus={handleRomanNumerals2}
+                  placeholder="Roman numerals goes here..."
+                />
+                { secondIntNum && <span className="num">{secondIntNum}</span> }
+              </div>
+            </div>
+
+            <div className="app-form__block">
+              <button onClick={(e) => HandleResultClick(e, 'plus')} className="app-form__btn">
+                <span>+</span>
+              </button>
+              <button onClick={(e) => HandleResultClick(e, 'minus')} className="app-form__btn">
+                <span>-</span>
+              </button>
+              <button onClick={(e) => HandleResultClick(e, 'multiply')} className="app-form__btn">
+                <span className="multi">*</span>
+              </button>
+            </div>
+
+            <div className="app-form__result">
+              <div className={`block ${result ? `show` : `hide`}`}>{result}</div>
+            </div>
+          </form>
+        </div>
+      </div>
     </main>
   )
 };

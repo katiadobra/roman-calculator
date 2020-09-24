@@ -1,0 +1,29 @@
+// :global
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+
+@import "normalize";
+@import "variables";
+
+html,
+body {
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.425;
+  background-color: $bg;
+  color: $text-color;
+
+  @media all and (min-width: 1024px) {
+    font-size: 14px;
+    letter-spacing: 0.035em;
+  }
+}
