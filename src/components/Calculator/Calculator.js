@@ -9,6 +9,7 @@ const Calculator = props => {
   const [firstIntNum, setFirstIntNum] = useState(null);
   const [secondIntNum, setSecondIntNum] = useState(null);
   const [result, setResult] = useState(null);
+  const [resultInt, setResultInt] = useState(null);
 
   const handleRomanNumerals = (event) => {
     setFirstRomanNum(event.target.value);
@@ -44,6 +45,7 @@ const Calculator = props => {
 
     let sum = IntToRoman(result);
     setResult(sum);
+    setResultInt(result);
   }
 
   return (
@@ -52,7 +54,7 @@ const Calculator = props => {
         <div className="app-form-holder">
           <form className="app-form">
             <div className="app-form__block">
-              <h3>Roman calculator</h3>
+              <h3 className="app-form__ttl">Accepted Roman Symbols: <span>I, V, X, L, C, D, M</span></h3>
             </div>
             <div className="app-form__block">
               <div className="app-input">
@@ -64,7 +66,7 @@ const Calculator = props => {
                   onFocus={handleRomanNumerals}
                   placeholder="Roman numerals goes here..."
                 />
-                { firstIntNum && <span className="num">{firstIntNum}</span> }
+                { firstIntNum && <span className="label">{firstIntNum}</span> }
               </div>
               <div className="app-input">
                 <input
@@ -75,7 +77,7 @@ const Calculator = props => {
                   onFocus={handleRomanNumerals2}
                   placeholder="Roman numerals goes here..."
                 />
-                { secondIntNum && <span className="num">{secondIntNum}</span> }
+                { secondIntNum && <span className="label">{secondIntNum}</span> }
               </div>
             </div>
 
@@ -92,7 +94,10 @@ const Calculator = props => {
             </div>
 
             <div className="app-form__result">
-              <div className={`block ${result ? `show` : `hide`}`}>{result}</div>
+              <div className={`block ${result ? `show` : `hide`}`}>
+                {result}
+                { resultInt && <span className="label">{resultInt}</span> }
+              </div>
             </div>
           </form>
         </div>

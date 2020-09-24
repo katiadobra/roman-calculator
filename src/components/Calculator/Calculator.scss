@@ -19,31 +19,32 @@
       box-shadow: $box-shadow-hover;
     }
   }
+}
 
-  .num {
+.label {
+  position: absolute;
+  top: -15px;
+  left: 85%;
+  min-width: 20px;
+  padding: 2px 10px;
+  background: $bg;
+  color: $white;
+  text-shadow: $text-shadow;
+
+  &:before {
+    content: '';
     position: absolute;
-    top: -15px;
-    left: 85%;
-    min-width: 20px;
-    padding: 2px 10px;
-    background: $btn-color;
-    color: $white;
-    text-shadow: $text-shadow;
-
-    &:before {
-      content: '';
-      position: absolute;
-      bottom: -14px;
-      left: 0;
-      width: 0;
-      height: 0;
-      border-top: 10px solid $btn-color;
-      border-right: 10px solid transparent;
-      border-bottom: 5px solid transparent;
-      border-left: 0 solid transparent;
-    }
+    bottom: -14px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 10px solid $bg;
+    border-right: 10px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 0 solid transparent;
   }
 }
+
 
 .app-form-wrapper {
   display: flex;
@@ -69,6 +70,16 @@
   border-radius: $border-radius;
   box-shadow: $box-shadow-hover;
   overflow-x: hidden;
+
+  &__ttl {
+    color: $white;
+
+    span {
+      display: block;
+      color: $white;
+      padding-left: 5px;
+    }
+  }
 
   &__result {
     width: 100%;
